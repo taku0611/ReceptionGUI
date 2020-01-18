@@ -1,19 +1,23 @@
-package panels;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+import javax.swing.*;
 
 public class MainFrame extends JFrame {
-    public String[] PanelNames = {"mainPanel", "SubPanel"};
+    public String[] PanelNames = {"mainPanel", "subPanel","subsubPanel"};
 
-    panels.MainPanel mainPanel = new panels.MainPanel(this, PanelNames[0]);
-    panels.SubPanel subPanel = new panels.SubPanel(this, PanelNames[1]);
+    //パネルの作成
+    MainPanel mainPanel = new MainPanel(this,PanelNames[0]);
+    SubPanel subPanel = new SubPanel(this,PanelNames[1]);
+    SubSubPanel subsubPanel = new SubSubPanel(this,PanelNames[2]);
 
     public MainFrame() {
         this.add(mainPanel);
         mainPanel.setVisible(true);
         this.add(subPanel);
         subPanel.setVisible(false);
+        this.add(subsubPanel);
+        subsubPanel.setVisible(false);
+
+        this.setSize(700, 500);
+        this.setLocationRelativeTo(null);
     }
 
     public static void main(String[] args) {
@@ -22,20 +26,39 @@ public class MainFrame extends JFrame {
         mainFrame.setVisible(true);
     }
 
-    public void PanelChange(JPanel jp, String str) {
-        System.out.println(jp.getName());
-        String name = jp.getName();
-        if (name == PanelNames[0]) {
-            mainPanel = (panels.MainPanel) jp;
-            mainPanel.setVisible(false);
-        } else if (name == PanelNames[1]) {
-            subPanel = (panels.SubPanel) jp;
-            subPanel.setVisible(false);
+    public void reloadPanel(String str){
+        if(str == PanelNames[0]){
+            this.remove(this.mainPanel);
+            MainPanel mainPanel = new MainPanel(this,PanelNames[0]);
+            this.add(mainPanel);
         }
-        if (str == PanelNames[0]) {
-            mainPanel.setVisible(true);
-        } else if (str == PanelNames[1]) {
-            subPanel.setVisible(true);
+        else if(str == PanelNames[1]){
+            this.remove(this.subPanel);
+            SubPanel subPanel = new SubPanel(this,PanelNames[1]);
+            this.add(subPanel);
         }
+        else if(str == PanelNames[2]){
+            this.remove(this.subsubPanel);
+            SubSubPanel subsubPanel = new SubSubPanel(this,PanelNames[2]);
+            this.add(subsubPanel);
+        }
+    }
+
+    //Mainパネルを表示
+    public void showMainPanel(JPanel nowPanel){
+        nowPanel.setVisible(false);
+        mainPanel.setVisible(true);
+    }
+
+    //Subパネルを表示
+    public void showSubPanel(JPanel nowPanel){
+        nowPanel.setVisible(false);
+        subPanel.setVisible(true);
+    }
+
+    //SubSubパネルを表示
+    public void showSubSubPanel(JPanel nowPanel){
+        nowPanel.setVisible(false);
+        subsubPanel.setVisible(true);
     }
 }
