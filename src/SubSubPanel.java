@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 
 public class SubSubPanel extends JPanel{
     JLabel label;
@@ -10,7 +11,12 @@ public class SubSubPanel extends JPanel{
         string=str;
         this.setName("subsubPanel");
 
+        this.setLayout(new GridBagLayout());
+        GridBagConstraints gridBagConstraints = new GridBagConstraints();
+
         label = new JLabel("ご依頼ありがとうございました");
-        this.add(label);
+        label.setFont(new Font(Font.DIALOG_INPUT, Font.BOLD, 35));
+        gridBagConstraints.anchor=GridBagConstraints.CENTER;
+        add(label,gridBagConstraints);
     }
 }
