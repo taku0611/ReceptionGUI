@@ -17,6 +17,8 @@ public class MainPanel extends JPanel {
         this.setName("mainPanel");
         setSize(700,500);
 
+        //Container cont =  mf.getContentPane();
+
         this.setLayout(new GridBagLayout());
         GridBagConstraints gridBagConstraints = new GridBagConstraints();
 

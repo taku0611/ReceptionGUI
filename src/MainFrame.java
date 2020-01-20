@@ -23,6 +23,7 @@ public class MainFrame extends JFrame {
 
     public static void main(String[] args) {
         MainFrame mainFrame = new MainFrame();
+
         mainFrame.setTitle("EV3 Delivery System");
         mainFrame.setDefaultCloseOperation(EXIT_ON_CLOSE);
         mainFrame.setVisible(true);
