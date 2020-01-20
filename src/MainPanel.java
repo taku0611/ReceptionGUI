@@ -4,11 +4,13 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 
 public class MainPanel extends JPanel {
+
     JButton btnEnter;
     MainFrame mainFrame;
     String string;
     JLabel jLabel;
     JLabel title;
+
     public MainPanel(MainFrame mf,String str){
         mainFrame = mf;
         string = str;

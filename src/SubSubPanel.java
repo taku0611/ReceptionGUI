@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class SubSubPanel extends JPanel{
+
     JLabel label;
     MainFrame mainFrame;
     String string;
